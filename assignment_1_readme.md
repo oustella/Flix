@@ -18,9 +18,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [X] (1pt) Run your app on a real device.
 
 ### App Walkthrough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
-<img src="https://github.com/oustella/Flix/blob/master/demo.gif" width=250><br>
+<img src="https://github.com/oustella/Flix/blob/master/demo.gif" width=600><br>
 
 ### Notes
 I also added components to reflect the average rating and vote count for each movie, which involves three labels, formatting the rating score to one decimal place and three-tiered conditional coloring (red: <5.0, organge: >5.0 & <8.0, green: >8.0). 
