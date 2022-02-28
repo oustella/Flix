@@ -20,7 +20,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 160
+//        tableView.rowHeight = 160
         
         // Download movies and store to movie dictionary
         // Get the array of movies
@@ -45,54 +45,46 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
         // function can be in any order
         // these two are created by adding the UITableView to class
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return movies.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell  //dequeueReusableCell use recycled cells that are off screen
-            let movie = movies[indexPath.row]
-            let title = movie["title"] as! String  //casting: define a var's type
-            let synopsis = movie["overview"] as! String
-            let voteAvg = round(movie["vote_average"] as! Double * 100) / 100.0
-            let voteCount = "(\(movie["vote_count"] ?? "0") votes)"
-            cell.titleLabel.text = title
-            cell.synopsisLabel.text = synopsis
-            cell.ratingLabel.text = String(voteAvg)
-            cell.ratingLabel.textColor = voteAvg < 5.0 ? UIColor.systemRed : (voteAvg > 8.0 ? UIColor.systemGreen : UIColor.systemOrange)
-            cell.voteCountLabel.text = voteCount
-            // set poster image
-            let baseUrl = "https://image.tmdb.org/t/p/w500"
-            let posterPath = movie["poster_path"] as! String
-            let posterUrl = URL(string: baseUrl + posterPath)!
-            cell.posterView.af.setImage(withURL: posterUrl)
-            
-//            // UNDER CONSTRUCTION DON'T USE experiment with circle progress bar
-//            let shapeLayer = CAShapeLayer()
-//            let center = cell.ratingLabel.center
-//            let circularPath = UIBezierPath(arcCenter: center, radius: 10, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
-//            shapeLayer.path = circularPath.cgPath
-//
-//            shapeLayer.strokeColor = voteAvg <= 5 ? UIColor.red.cgColor : UIColor.green.cgColor
-//            shapeLayer.lineWidth = 5
-//            shapeLayer.fillColor = UIColor.clear.cgColor
-//            shapeLayer.lineCap = CAShapeLayerLineCap.round
-//
-//            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-//            basicAnimation.toValue = voteAvg / 10.0
-//
-//            basicAnimation.duration = 2
-//            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-//            basicAnimation.isRemovedOnCompletion = false
-//            shapeLayer.add(basicAnimation, forKey: "basic")
-
-//            cell.layer.addSublayer(shapeLayer)
-//            // END UNDER CONSTRUCTION DON'T USE experiment with circle progress bar
-
-            return cell
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
     
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell  //dequeueReusableCell use recycled cells that are off screen
+        let movie = movies[indexPath.row]
+        let title = movie["title"] as! String  //casting: define a var's type
+        let synopsis = movie["overview"] as! String
+        let voteAvg = round(movie["vote_average"] as! Double * 100) / 100.0
+        let voteCount = "(\(movie["vote_count"] ?? "0") votes)"
+        cell.titleLabel.text = title
+        cell.synopsisLabel.text = synopsis
+        cell.ratingLabel.text = String(voteAvg)
+        cell.ratingLabel.textColor = voteAvg < 5.0 ? UIColor.systemRed : (voteAvg > 8.0 ? UIColor.systemGreen : UIColor.systemOrange)
+        cell.voteCountLabel.text = voteCount
+        // set poster image
+        let baseUrl = "https://image.tmdb.org/t/p/w500"
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath)!
+        cell.posterView.af.setImage(withURL: posterUrl)
+        
+        return cell
+    }
+    
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        // Find the selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        // Pass it to the MovieDetailVC
+        let detailVC = segue.destination as! MovieDetailViewController
+        detailVC.movie = movie
+    }
+    
 
 
 }
