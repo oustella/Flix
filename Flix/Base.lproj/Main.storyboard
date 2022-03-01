@@ -197,6 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="3wg-Ed-13b" kind="relationship" relationship="viewControllers" id="EqN-Dz-hOc"/>
@@ -215,10 +216,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c34-Hn-Mjf">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c34-Hn-Mjf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c0B-FU-KQB">
                                     <size key="itemSize" width="229" height="281"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -249,6 +249,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8gc-5I-bZI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="c34-Hn-Mjf" secondAttribute="bottom" id="CyE-sI-EPy"/>
+                            <constraint firstItem="c34-Hn-Mjf" firstAttribute="leading" secondItem="8gc-5I-bZI" secondAttribute="leading" id="MiN-wb-1pV"/>
+                            <constraint firstItem="c34-Hn-Mjf" firstAttribute="top" secondItem="dGT-Uj-CKm" secondAttribute="top" id="aT0-NQ-Tpd"/>
+                            <constraint firstItem="c34-Hn-Mjf" firstAttribute="trailing" secondItem="8gc-5I-bZI" secondAttribute="trailing" id="u8B-Sr-rl8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Superhero" id="i8d-sN-NtK"/>
                     <connections>
@@ -271,6 +277,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
