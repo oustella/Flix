@@ -2,7 +2,27 @@
 
 Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-📝 `NOTE - PASTE PART 2 SNIPPET HERE:` Paste the README template for part 2 of this assignment here at the top. This will show a history of your development process, which users stories you completed and how your app looked and functioned at each step.
+## Flix Part 2
+
+### User Stories
+
+#### REQUIRED (10pts)
+- [x] (5pts) User can tap a cell to see more details about a particular movie.
+- [x] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+
+#### BONUS
+- [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+
+### App Walkthrough GIF
+<img src="https://github.com/oustella/Flix/blob/master/demo_week2.gif" width=250><br>
+
+### Notes
+Being able to implement bonus features is tremendously satisfying. At first I wasn't sure if the detailVC can be shared by mutiple upstream VC but decided to give it a try before creating a new cocoa touch class since the cost of doing so is low. It worked amazingly. It seems the detailed VC gets recycled as soon as you leave that screen so new content can be populated contrary to my initial concern.
+
+The second bonus feature, trailer view, took a little bit of trial and error since the instruction is not as detailed. After reading the CodePath iOS cliffnotes on the gesture recognizer and trying some code, I still wasn't clear how to prompt the segue. Some Stack Overflow browsing later, I was able to connect the dots with what was discussed in class last week. So all that's needed to create the tap gesture prompted segue is to link a Tap Gesture Recognizer to the poster image, and the gesture to the trailer view. Similarly, I got a hang of the web view VC by reading the docs on Apple's website about the WKWebView, which replaced the UIWebView class. 
+
+Last but not least, to implement the required features, this time I gave myself a new challenge - instead of following along the tutorial video, I decided that I would execute the necessary steps _after_ watching the video. This quickly proved to be challenging as I stumbled along the way, realzing what seemed intuitive is no longer so when I did it on my own. At one point I couldn't debug what was causing crashes related to references when all the code is identifcal to the tutorial (so it must have been related to tinkering the class references of the different objects on the story board.) I had to delete an entire VC and created it from scratch to get over the hurdle. Ultimately, I believe trying to implement the features after watching the tutorials could help me internalizing the iOS development process (code + Storyboard) more quickly.
 
 ---
 
