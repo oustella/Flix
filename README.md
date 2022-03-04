@@ -15,7 +15,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ### App Walkthrough GIF
-<img src="https://github.com/oustella/Flix/blob/master/demo_week2.gif" width=250><br>
+<img src="https://github.com/oustella/Flix/blob/master/demo_week2.gif" width=600><br>
 
 ### Notes
 Because the trailer API endpoint returns several videos, I made sure the video played is a trailer, not a video clip of the movie, by parsing through a for loop and breaking at the first trailer unless there's only one video returned.
