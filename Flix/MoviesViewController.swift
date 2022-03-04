@@ -83,6 +83,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Pass it to the MovieDetailVC
         let detailVC = segue.destination as! MovieDetailViewController
         detailVC.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 

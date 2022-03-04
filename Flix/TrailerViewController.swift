@@ -6,13 +6,26 @@
 //
 
 import UIKit
+import WebKit
 
-class TrailerViewController: UIViewController {
+class TrailerViewController: UIViewController, WKUIDelegate {
 
+    var webView: WKWebView!
+    var trailerKey: String!
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // default video id is 0 which opens a video not available page
+        let trailerURL = URL(string: "https://www.youtube.com/watch?v=\(self.trailerKey ?? "0")")
+        let myRequest = URLRequest(url: trailerURL!)
+        webView.load(myRequest)
     }
     
 

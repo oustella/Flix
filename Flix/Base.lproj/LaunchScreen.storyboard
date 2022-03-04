@@ -19,20 +19,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="Hup-dd-Ccg">
                                 <rect key="frame" x="138" y="378.5" width="138" height="139"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flix: Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-Cl-dJq">
-                                <rect key="frame" x="150" y="542.5" width="114" height="17"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Hup-dd-Ccg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0wx-xK-J0N"/>
-                            <constraint firstItem="Kyh-Cl-dJq" firstAttribute="centerX" secondItem="Hup-dd-Ccg" secondAttribute="centerX" id="kgZ-nv-R23"/>
-                            <constraint firstItem="Kyh-Cl-dJq" firstAttribute="top" secondItem="Hup-dd-Ccg" secondAttribute="bottom" constant="25" id="tup-dt-26D"/>
                             <constraint firstItem="Hup-dd-Ccg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wcx-HI-IEd"/>
                         </constraints>
                     </view>
@@ -44,9 +35,6 @@
     </scenes>
     <resources>
         <image name="launch_image" width="138" height="139"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

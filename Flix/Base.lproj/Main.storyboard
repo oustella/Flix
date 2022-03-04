@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOQ-kQ-k0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="-579"/>
+            <point key="canvasLocation" x="561" y="-512"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="rFa-Mn-cbL">
@@ -140,12 +140,16 @@
                                     <constraint firstAttribute="width" secondItem="AvZ-fO-bAE" secondAttribute="height" multiplier="414:235" id="vqQ-Zm-Qq0"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F55-3o-PlK" userLabel="posterImage">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F55-3o-PlK" userLabel="posterImage">
                                 <rect key="frame" x="10" y="253" width="100" height="140"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="bBc-Vc-EHY"/>
                                     <constraint firstAttribute="width" constant="100" id="jzL-oF-EHB"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hhD-fv-bGA" appends="YES" id="OBY-zI-ll6"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-XB-uDd" userLabel="synopsisLabel">
                                 <rect key="frame" x="5" y="398" width="404" height="21.5"/>
@@ -186,8 +190,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NK-35-ill" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hhD-fv-bGA">
+                    <connections>
+                        <segue destination="lc4-zg-U1G" kind="presentation" id="3uo-3v-15g"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1330.4347826086957" y="-579.24107142857144"/>
+            <point key="canvasLocation" x="1485.5072463768117" y="-871.20535714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CvU-lI-f0d">
@@ -242,6 +251,7 @@
                                         <size key="customSize" width="229" height="281"/>
                                         <connections>
                                             <outlet property="posterView" destination="1Im-NX-tW5" id="tlF-15-ke0"/>
+                                            <segue destination="aoc-Mj-uDX" kind="show" id="L7X-Nv-ElT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -263,7 +273,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKn-Md-Xwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="-1252.2321428571429"/>
+            <point key="canvasLocation" x="561" y="-1252"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="rtP-62-3Pj">
+            <objects>
+                <viewController id="lc4-zg-U1G" customClass="TrailerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JBb-v1-nEc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gn7-ZC-D5M">
+                                <rect key="frame" x="87" y="354" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0iP-tm-d1W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lEn-DS-4da" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2304" y="-871"/>
         </scene>
         <!--Superhero-->
         <scene sceneID="acC-xx-xhC">
@@ -289,6 +325,9 @@
             <point key="canvasLocation" x="-223.18840579710147" y="-1252.2321428571429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9QU-m0-O1H"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
